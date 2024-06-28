@@ -1,0 +1,71 @@
+### 3 Tier Appp
+
+## Part 1
+
+cd ~/.ssh
+ssh-keygen
+
+cat key.pub
+
+export GIT_SSH_COMMAND="ssh -i ~/.ssh/key"
+
+mkdir ~/Desktop
+
+cd ~/Desktop/ 
+
+mkdir project && cd project
+
+Settings > secrets and variable > action > new repo secret   ##<< add aws access key and sceret key to both and bucket only to iac_code >>
+
+git clone https://github.com/DevopsLearn8717/reactjs-quiz-app.git
+
+cd reactjs-quiz-app
+
+git config core.sshCommand "ssh -i ~/.ssh/key -F /dev/null"
+
+git remote -v
+
+git remote set-url origin https://github.com/DevopsLearn8717/react-js.git
+
+cd ..
+
+git clone https://github.com/DevopsLearn8717/iac_code.git
+
+cd iac_code
+
+git config core.sshCommand "ssh -i ~/.ssh/key -F /dev/null"
+
+git remote -v
+
+git remote set-url origin ##<<New git repo url>>
+
+code .
+
+git config --global user.name DevopsLearn8717
+git config --global user.email devops.learn8717@gmail.com
+
+cd .. 
+
+git config --global user.email devops.learn8717@gmail.com
+
+cd iac_code
+
+##<< Make changes to iac_odic repo terraform.yml file in .git folder order to it to run >>
+
+git add .
+
+git commit -am "updated terraform files"
+
+git push
+
+##Sonar Token cd5bba2367a9cb5267a1aa6a3eb430946541b943
+
+cd ../reactjs-quiz-app
+
+##<< Make changes to iac_odic repo terraform.yml file in .git folder order to it to run >>
+
+git add .
+
+git commit -am "updated quiz"
+
+git push
